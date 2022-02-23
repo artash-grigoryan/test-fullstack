@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "poc-goings-on": "apps/poc-goings-on"
+  }
+}
