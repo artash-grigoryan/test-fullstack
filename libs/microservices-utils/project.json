@@ -1,0 +1,34 @@
+{
+  "root": "libs/microservices-utils",
+  "sourceRoot": "libs/microservices-utils/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/microservices-utils",
+        "tsConfig": "libs/microservices-utils/tsconfig.lib.json",
+        "packageJson": "libs/microservices-utils/package.json",
+        "main": "libs/microservices-utils/src/index.ts",
+        "assets": ["libs/microservices-utils/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/microservices-utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/microservices-utils"],
+      "options": {
+        "jestConfig": "libs/microservices-utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

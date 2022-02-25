@@ -1,0 +1,34 @@
+{
+  "root": "libs/goings-on-mongo-drivers-io",
+  "sourceRoot": "libs/goings-on-mongo-drivers-io/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/goings-on-mongo-drivers-io",
+        "tsConfig": "libs/goings-on-mongo-drivers-io/tsconfig.lib.json",
+        "packageJson": "libs/goings-on-mongo-drivers-io/package.json",
+        "main": "libs/goings-on-mongo-drivers-io/src/index.ts",
+        "assets": ["libs/goings-on-mongo-drivers-io/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/goings-on-mongo-drivers-io/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/goings-on-mongo-drivers-io"],
+      "options": {
+        "jestConfig": "libs/goings-on-mongo-drivers-io/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

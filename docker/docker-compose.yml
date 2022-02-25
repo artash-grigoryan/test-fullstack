@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  ### BLOCKCHAIN
+  evento-db-mongo-local:
+    image: evento/evento-db-mongo-local
+    container_name: evento-db-mongo-local
+    build:
+      context: ./mongodb-local
+      dockerfile: Dockerfile
+    volumes:
+      - type: volume
+        source: db-mongo-local
+        target: /data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: db-mongo-local
+    restart: "unless-stopped"
+
+  ### PROJECTIONS
+  db-mysql-local:
+    image: evento/evento-db-mysql-local
+    container_name: evento-db-mysql-local
+    build:
+      context: ./mysql-local
+      dockerfile: Dockerfile
+    volumes:
+      - type: volume
+        source: db-mysql-local
+        target: /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    restart: "unless-stopped"
+
+# VOLUMES
+volumes:
+  db-mongo-local:
+    external: true
+  db-mysql-local:
+    external: true
+
+networks:
+  default:
+    external:
+      name: evento-dev

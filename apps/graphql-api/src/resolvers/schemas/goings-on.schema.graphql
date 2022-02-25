@@ -1,0 +1,33 @@
+input GoingsOnsFilters{
+  id: String
+  name: String
+  date: String
+}
+input Order {
+  field: String
+  value: String
+}
+type GoingsOn {
+  id: ID!
+  name: String!
+  date: String!
+  description: String
+  email: String!
+  createdAt: String
+  updatedAt: String
+}
+
+type GoingsOnResult {
+  data: [GoingsOn]
+  totalCount: Int
+}
+
+type Query {
+  goingsOns(
+    page: Int = 0
+    size: Int = 10
+    filters: GoingsOnsFilters = {}
+    order: [Order] = []
+  ): GoingsOnResult
+  goingsOn(id: String): GoingsOn
+}

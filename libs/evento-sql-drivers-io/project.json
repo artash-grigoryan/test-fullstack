@@ -1,0 +1,34 @@
+{
+  "root": "libs/evento-sql-drivers-io",
+  "sourceRoot": "libs/evento-sql-drivers-io/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/evento-sql-drivers-io",
+        "tsConfig": "libs/evento-sql-drivers-io/tsconfig.lib.json",
+        "packageJson": "libs/evento-sql-drivers-io/package.json",
+        "main": "libs/evento-sql-drivers-io/src/index.ts",
+        "assets": ["libs/evento-sql-drivers-io/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/evento-sql-drivers-io/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/evento-sql-drivers-io"],
+      "options": {
+        "jestConfig": "libs/evento-sql-drivers-io/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

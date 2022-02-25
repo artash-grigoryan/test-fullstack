@@ -1,0 +1,34 @@
+{
+  "root": "libs/goings-on-events-drivers-producer",
+  "sourceRoot": "libs/goings-on-events-drivers-producer/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/goings-on-events-drivers-producer",
+        "tsConfig": "libs/goings-on-events-drivers-producer/tsconfig.lib.json",
+        "packageJson": "libs/goings-on-events-drivers-producer/package.json",
+        "main": "libs/goings-on-events-drivers-producer/src/index.ts",
+        "assets": ["libs/goings-on-events-drivers-producer/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/goings-on-events-drivers-producer/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/goings-on-events-drivers-producer"],
+      "options": {
+        "jestConfig": "libs/goings-on-events-drivers-producer/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

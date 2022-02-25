@@ -1,0 +1,59 @@
+{
+  "root": "apps/evento-projection-ms",
+  "sourceRoot": "apps/evento-projection-ms/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/evento-projection-ms",
+        "main": "apps/evento-projection-ms/src/main.ts",
+        "tsConfig": "apps/evento-projection-ms/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/evento-projection-ms/src/environments/environment.ts",
+              "with": "apps/evento-projection-ms/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "evento-projection-ms:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/evento-projection-ms/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/evento-projection-ms"
+      ],
+      "options": {
+        "jestConfig": "apps/evento-projection-ms/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

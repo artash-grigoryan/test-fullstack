@@ -1,0 +1,51 @@
+{
+  "root": "apps/goings-on-domain-ms",
+  "sourceRoot": "apps/goings-on-domain-ms/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/goings-on-domain-ms",
+        "main": "apps/goings-on-domain-ms/src/main.ts",
+        "tsConfig": "apps/goings-on-domain-ms/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/goings-on-domain-ms/src/environments/environment.ts",
+              "with": "apps/goings-on-domain-ms/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "goings-on-domain-ms:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/goings-on-domain-ms/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/goings-on-domain-ms"],
+      "options": {
+        "jestConfig": "apps/goings-on-domain-ms/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

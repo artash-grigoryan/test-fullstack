@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  ### BROKER
+  evento-rabbitmq:
+    image: evento/evento-rabbitmq
+    container_name: evento-rabbitmq
+    build:
+      context: ./rabbitmq
+    volumes:
+      - type: volume
+        source: rabbitmq
+        target: /var/lib/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: "unless-stopped"
+
+### VOLUMES
+volumes:
+  rabbitmq:
+    external: true
+
+networks:
+  default:
+    external:
+      name: evento-dev

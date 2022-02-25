@@ -1,0 +1,44 @@
+{
+  "root": "libs/rabbitmq-utils",
+  "sourceRoot": "libs/rabbitmq-utils/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/rabbitmq-utils",
+        "tsConfig": "libs/rabbitmq-utils/tsconfig.lib.json",
+        "packageJson": "libs/rabbitmq-utils/package.json",
+        "main": "libs/rabbitmq-utils/src/index.ts",
+        "assets": [
+          "libs/rabbitmq-utils/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/rabbitmq-utils/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/rabbitmq-utils"
+      ],
+      "options": {
+        "jestConfig": "libs/rabbitmq-utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

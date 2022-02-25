@@ -1,6 +1,18 @@
 {
   "version": 2,
   "projects": {
-    "poc-goings-on": "apps/poc-goings-on"
+    "evento-projection-ms": "apps/evento-projection-ms",
+    "evento-sql-drivers-io": "libs/evento-sql-drivers-io",
+    "goings-on-commands-drivers-consumer": "libs/goings-on-commands-drivers-consumer",
+    "goings-on-commands-drivers-producer": "libs/goings-on-commands-drivers-producer",
+    "goings-on-domain-ms": "apps/goings-on-domain-ms",
+    "goings-on-events-drivers-consumer": "libs/goings-on-events-drivers-consumer",
+    "goings-on-events-drivers-producer": "libs/goings-on-events-drivers-producer",
+    "goings-on-models": "libs/goings-on-models",
+    "goings-on-mongo-drivers-io": "libs/goings-on-mongo-drivers-io",
+    "graphql-api": "apps/graphql-api",
+    "microservices-utils": "libs/microservices-utils",
+    "rabbitmq-utils": "libs/rabbitmq-utils",
+    "rest-api": "apps/rest-api"
   }
 }

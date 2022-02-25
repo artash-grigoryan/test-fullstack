@@ -14,7 +14,29 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@evento/evento-sql-drivers-io": [
+        "libs/evento-sql-drivers-io/src/index.ts"
+      ],
+      "@evento/goings-on-commands-drivers-consumer": [
+        "libs/goings-on-commands-drivers-consumer/src/index.ts"
+      ],
+      "@evento/goings-on-commands-drivers-producer": [
+        "libs/goings-on-commands-drivers-producer/src/index.ts"
+      ],
+      "@evento/goings-on-events-drivers-consumer": [
+        "libs/goings-on-events-drivers-consumer/src/index.ts"
+      ],
+      "@evento/goings-on-events-drivers-producer": [
+        "libs/goings-on-events-drivers-producer/src/index.ts"
+      ],
+      "@evento/goings-on-models": ["libs/goings-on-models/src/index.ts"],
+      "@evento/goings-on-mongo-drivers-io": [
+        "libs/goings-on-mongo-drivers-io/src/index.ts"
+      ],
+      "@evento/microservices-utils": ["libs/microservices-utils/src/index.ts"],
+      "@evento/rabbitmq-utils": ["libs/rabbitmq-utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

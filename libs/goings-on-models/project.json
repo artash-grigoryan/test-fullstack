@@ -1,0 +1,44 @@
+{
+  "root": "libs/goings-on-models",
+  "sourceRoot": "libs/goings-on-models/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/goings-on-models",
+        "tsConfig": "libs/goings-on-models/tsconfig.lib.json",
+        "packageJson": "libs/goings-on-models/package.json",
+        "main": "libs/goings-on-models/src/index.ts",
+        "assets": [
+          "libs/goings-on-models/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/goings-on-models/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/goings-on-models"
+      ],
+      "options": {
+        "jestConfig": "libs/goings-on-models/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
